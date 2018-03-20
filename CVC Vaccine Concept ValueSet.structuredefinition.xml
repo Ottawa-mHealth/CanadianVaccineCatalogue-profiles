@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cvc-vaccine-concept-ValueSet" />
   <meta>
-    <lastUpdated value="2018-03-20T19:43:50.185+00:00" />
+    <lastUpdated value="2018-03-20T21:02:38.307+00:00" />
   </meta>
   <url value="StructureDefinition/cvc-vaccine-concept-ValueSet" />
   <version value="1.0.0" />
@@ -42,7 +43,7 @@
     <element id="ValueSet.compose.include.concept.designation:displayTermEn">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="displayTermEn" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:displayTermEn.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -66,7 +67,7 @@
     <element id="ValueSet.compose.include.concept.designation:displayTermFr">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="displayTermFr" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:displayTermFr.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -90,7 +91,7 @@
     <element id="ValueSet.compose.include.concept.designation:preferredTermEn">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="preferredTermEn" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:preferredTermEn.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -114,7 +115,7 @@
     <element id="ValueSet.compose.include.concept.designation:preferredTermFr">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="preferredTermFr" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:preferredTermFr.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -138,7 +139,7 @@
     <element id="ValueSet.compose.include.concept.designation:picklistTermEn">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="picklistTermEn" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:picklistTermEn.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -165,7 +166,7 @@
     <element id="ValueSet.compose.include.concept.designation:picklistTermFr">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="picklistTermFr" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:picklistTermFr.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -189,7 +190,7 @@
     <element id="ValueSet.compose.include.concept.designation:abbreviationEn">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="abbreviationEn" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:abbreviationEn.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
@@ -216,7 +217,7 @@
     <element id="ValueSet.compose.include.concept.designation:abbreviationFr">
       <path value="ValueSet.compose.include.concept.designation" />
       <sliceName value="abbreviationFr" />
-      <max value="8" />
+      <max value="1" />
     </element>
     <element id="ValueSet.compose.include.concept.designation:abbreviationFr.language">
       <path value="ValueSet.compose.include.concept.designation.language" />
