@@ -1,0 +1,226 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "CanadianVaccineCatalogue2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>TBD</p>\n\t\t</div>"
+  },
+  "url": "https://api.cvc.canimmunize.ca/baseDSTU3",
+  "version": "R3",
+  "name": "Canadian Vaccine Catalogue Server FHIR Capability Statement",
+  "title": "Canadian Vaccine Catalogue Server FHIR Capability Statement",
+  "status": "active",
+  "experimental": true,
+  "date": "2018-03-20",
+  "publisher": "CANImmunize",
+  "contact": [
+    {
+      "name": "CANImmunize",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "cvc@canimmunize.ca"
+        }
+      ]
+    }
+  ],
+  "description": "This is the FHIR capability statement for the Canadian Vaccine Catalogue server.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "CA",
+          "display": "Canada"
+        }
+      ]
+    }
+  ],
+  "purpose": "Capability statement for Canadian Vaccine Catalogue FHIR server to support dissemination of vaccine terminology and product information.",
+  "copyright": "Copyright © CANImmunize",
+  "kind": "instance",
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "no",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "profile": [
+    {
+      "reference": "https://ehealthontario.ca/API/FHIR/StructureDefinition/ca-on-immunizations-profile-submission-clinician-MessageHeader"
+    },
+    {
+      "reference": "https://ehealthontario.ca/API/FHIR/StructureDefinition/ca-on-immunizations-profile-submission-clinician-Immunization"
+    }
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "Supports retrieval of vaccine terminology standards and variable product data from the Canadian Vaccine Catalogue.",
+      "resource": [
+        {
+        "extension": [
+          {
+            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+            "valueDecimal": 36
+          }
+        ],
+        "type": "Immunization",
+        "profile": {
+          "reference": "http://hl7.org/fhir/Profile/Immunization"
+        },
+        "interaction": [
+          {
+            "code": "read"
+          },
+          {
+            "code": "vread"
+          },
+          {
+            "code": "update"
+          },
+          {
+            "code": "patch"
+          },
+          {
+            "code": "delete"
+          },
+          {
+            "code": "history-instance"
+          },
+          {
+            "code": "history-type"
+          },
+          {
+            "code": "create"
+          },
+          {
+            "code": "search-type"
+          }
+        ],
+        "versioning": "versioned-update",
+        "conditionalCreate": true,
+        "conditionalUpdate": true,
+        "conditionalDelete": "multiple",
+        "searchInclude": [
+          "*",
+          "Immunization:location",
+          "Immunization:manufacturer",
+          "Immunization:patient",
+          "Immunization:practitioner",
+          "Immunization:reaction"
+        ],
+        "searchParam": [
+          {
+            "name": "_language",
+            "type": "string",
+            "documentation": "The language of the resource"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "documentation": "Vaccination  (non)-Administration Date"
+          },
+          {
+            "name": "identifier",
+            "type": "token",
+            "documentation": "Business identifier"
+          },
+          {
+            "name": "reason",
+            "type": "token",
+            "documentation": "Why immunization occurred"
+          },
+          {
+            "name": "reaction",
+            "type": "reference",
+            "documentation": "Additional information on reaction"
+          },
+          {
+            "name": "lot-number",
+            "type": "string",
+            "documentation": "Vaccine Lot Number"
+          },
+          {
+            "name": "practitioner",
+            "type": "reference",
+            "documentation": "The practitioner who played a role in the vaccination"
+          },
+          {
+            "name": "notgiven",
+            "type": "token",
+            "documentation": "Administrations which were not given"
+          },
+          {
+            "name": "manufacturer",
+            "type": "reference",
+            "documentation": "Vaccine Manufacturer"
+          },
+          {
+            "name": "dose-sequence",
+            "type": "number",
+            "documentation": "Dose number within series"
+          },
+          {
+            "name": "patient",
+            "type": "reference",
+            "documentation": "The patient for the vaccination record"
+          },
+          {
+            "name": "vaccine-code",
+            "type": "token",
+            "documentation": "Vaccine Product Administered"
+          },
+          {
+            "name": "reason-not-given",
+            "type": "token",
+            "documentation": "Explanation of reason vaccination was not administered"
+          },
+          {
+            "name": "location",
+            "type": "reference",
+            "documentation": "The service delivery location or facility in which the vaccine was / was to be administered"
+          },
+          {
+            "name": "_id",
+            "type": "token",
+            "documentation": "The ID of the resource"
+          },
+          {
+            "name": "reaction-date",
+            "type": "date",
+            "documentation": "When reaction started"
+          },
+          {
+            "name": "status",
+            "type": "token",
+            "documentation": "Immunization event status"
+          }
+        ]
+      }
+      ]
+    }
+  ],
+  "messaging": [
+    {
+      "endpoint": [
+        {
+          "protocol": {
+            "system": "http://hl7.org/fhir/message-transport",
+            "code": "http"
+          },
+          "address": "https://wsgateway.prod.ehealthontario.ca/API/FHIR/Immunizations/v3/clinician/$process-message"
+        }
+      ],
+      "documentation": "Submission of patient's immunization(s)",
+      "supportedMessage":[
+        {
+          "mode": "receiver",
+          "definition": {
+            "reference": "StructureDefinition/MessageDefinitionTBD"
+          }
+        }
+      ]
+    }
+  ]
+}
