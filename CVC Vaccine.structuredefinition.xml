@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cvc-vaccine-Medication" />
+  <meta>
+    <lastUpdated value="2018-03-20T20:56:04.227+00:00" />
+  </meta>
+  <url value="StructureDefinition/cvc-vaccine-Medication" />
+  <version value="1.0.0" />
+  <name value="CVC Vaccine" />
+  <status value="draft" />
+  <date value="2018-03-20T20:09:17.623+00:00" />
+  <publisher value="CANImmunize" />
+  <description value="Profile of Medication resource used to represent the vaccines available for use in Canada." />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Medication" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Medication" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Medication.code.coding">
+      <path value="Medication.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <max value="3" />
+    </element>
+    <element id="Medication.code.coding:vaccineDin">
+      <path value="Medication.code.coding" />
+      <sliceName value="vaccineDin" />
+      <definition value="Drug Identification Number (DIN). Number issued by Health Canada for drugs that can be legally marketed in Canada.&#xD;&#xA;" />
+      <max value="1" />
+    </element>
+    <element id="Medication.code.coding:vaccineDin.system">
+      <path value="Medication.code.coding.system" />
+      <fixedUri value="http://hl7.org/fhir/NamingSystem/ca-hc-din" />
+    </element>
+    <element id="Medication.code.coding:vaccineDin.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Medication.code.coding.display" />
+      <fixedString value="Canadian Drug Identification Number" />
+    </element>
+    <element id="Medication.code.coding:vaccineDin.userSelected">
+      <path value="Medication.code.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.coding:vaccineCode">
+      <path value="Medication.code.coding" />
+      <sliceName value="vaccineCode" />
+      <definition value="Vaccine Code based on a Canadian subset of SNOMED CT vaccines codes&#xD;&#xA;" />
+      <max value="1" />
+    </element>
+    <element id="Medication.code.coding:vaccineCode.system">
+      <path value="Medication.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Medication.code.coding:vaccineCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Medication.code.coding.display" />
+      <fixedString value="SNOMED CT Code" />
+    </element>
+    <element id="Medication.code.coding:vaccineCode.userSelected">
+      <path value="Medication.code.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.coding:vaccineGtin">
+      <path value="Medication.code.coding" />
+      <sliceName value="vaccineGtin" />
+      <definition value="Global Trade Item Numbers that represent this vaccine product." />
+    </element>
+    <element id="Medication.code.coding:vaccineGtin.system">
+      <path value="Medication.code.coding.system" />
+      <fixedUri value="http://www.gs1.org/gtin" />
+    </element>
+    <element id="Medication.code.coding:vaccineGtin.userSelected">
+      <path value="Medication.code.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Medication.code.text" />
+      <max value="0" />
+    </element>
+    <element id="Medication.isBrand">
+      <path value="Medication.isBrand" />
+      <fixedBoolean value="true" />
+    </element>
+    <element id="Medication.isOverTheCounter">
+      <path value="Medication.isOverTheCounter" />
+      <max value="0" />
+    </element>
+    <element id="Medication.form">
+      <path value="Medication.form" />
+      <max value="0" />
+    </element>
+    <element id="Medication.ingredient">
+      <path value="Medication.ingredient" />
+      <max value="0" />
+    </element>
+    <element id="Medication.package.container">
+      <path value="Medication.package.container" />
+      <max value="0" />
+    </element>
+    <element id="Medication.package.content">
+      <path value="Medication.package.content" />
+      <max value="0" />
+    </element>
+    <element id="Medication.package.batch.lotNumber">
+      <path value="Medication.package.batch.lotNumber" />
+      <min value="1" />
+    </element>
+    <element id="Medication.image">
+      <path value="Medication.image" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

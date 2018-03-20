@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cvc-vaccine-concept-ValueSet" />
+  <meta>
+    <lastUpdated value="2018-03-20T21:02:38.307+00:00" />
+  </meta>
+  <url value="StructureDefinition/cvc-vaccine-concept-ValueSet" />
+  <version value="1.0.0" />
+  <name value="CVC Vaccine Concept ValueSet" />
+  <status value="draft" />
+  <date value="2018-03-20T18:25:47.167+00:00" />
+  <publisher value="CANImmunize" />
+  <description value="Profile for vaccine concept ValueSets, specifically to represent the Generic and Tradename vaccine concepts" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="ValueSet" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ValueSet" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ValueSet.compose.include.system">
+      <path value="ValueSet.compose.include.system" />
+      <type>
+        <code value="uri" />
+        <profile value="http://snomed.info/sct" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.include.concept.designation">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="use.code" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="language" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <max value="8" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermEn">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="displayTermEn" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermEn.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="en" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermEn.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermEn.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="900000000000550004" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermEn.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Definition" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermFr">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="displayTermFr" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermFr.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="fr" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermFr.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermFr.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="900000000000550004" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:displayTermFr.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Definition" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermEn">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="preferredTermEn" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermEn.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="en" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermEn.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermEn.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="900000000000548007" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermEn.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Preferred" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermFr">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="preferredTermFr" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermFr.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="fr" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermFr.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermFr.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="900000000000548007" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:preferredTermFr.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Preferred" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermEn">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="picklistTermEn" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermEn.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="en" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermEn.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermEn.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <type>
+        <code value="code" />
+        <profile value="900000000000013009" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermEn.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Synonym" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermFr">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="picklistTermFr" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermFr.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="fr" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermFr.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermFr.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="900000000000013009" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:picklistTermFr.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Synonym" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationEn">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="abbreviationEn" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationEn.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="en" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationEn.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationEn.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="398223008" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationEn.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <type>
+        <code value="string" />
+        <profile value="Abbreviation" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationFr">
+      <path value="ValueSet.compose.include.concept.designation" />
+      <sliceName value="abbreviationFr" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationFr.language">
+      <path value="ValueSet.compose.include.concept.designation.language" />
+      <fixedCode value="fr" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationFr.use.system">
+      <path value="ValueSet.compose.include.concept.designation.use.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationFr.use.code">
+      <path value="ValueSet.compose.include.concept.designation.use.code" />
+      <fixedCode value="398223008" />
+    </element>
+    <element id="ValueSet.compose.include.concept.designation:abbreviationFr.use.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="ValueSet.compose.include.concept.designation.use.display" />
+      <fixedString value="Abbreviation" />
+    </element>
+  </differential>
+</StructureDefinition>
