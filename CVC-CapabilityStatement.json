@@ -1,0 +1,169 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "CanadianVaccineCatalogue",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<p>TBD</p>\n\t\t</div>"
+  },
+  "url": "https://api.cvc.canimmunize.ca/baseDSTU3",
+  "version": "R3",
+  "name": "Canadian Vaccine Catalogue Server FHIR Capability Statement",
+  "title": "Canadian Vaccine Catalogue Server FHIR Capability Statement",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-03-20",
+  "publisher": "CANImmunize",
+  "contact": [
+    {
+      "name": "CANImmunize",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "cvc@canimmunize.ca"
+        }
+      ]
+    }
+  ],
+  "description": "This is the FHIR capability statement for the Canadian Vaccine Catalogue server.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "CA",
+          "display": "Canada"
+        }
+      ]
+    }
+  ],
+  "purpose": "Capability statement for Canadian Vaccine Catalogue FHIR server to support dissemination of vaccine terminology and product information.",
+  "copyright": "Copyright © CANImmunize",
+  "kind": "instance",
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "no",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "profile": [
+    {
+      "reference": "https://ehealthontario.ca/API/FHIR/StructureDefinition/ca-on-immunizations-profile-submission-clinician-MessageHeader"
+    },
+    {
+      "reference": "https://ehealthontario.ca/API/FHIR/StructureDefinition/ca-on-immunizations-profile-submission-clinician-Immunization"
+    }
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "Support submission and retrieval of patient's immunization records",
+      "security": {
+        "cors": true,
+        "description": "JWT/SAML. Please refer to Ontario Immuniations Secuirty Guide."
+      },
+      "resource": [
+        {
+          "type": "ValueSet",
+          "profile": {
+            "reference": "https://ehealthontario.ca/API/FHIR/StructureDefinition/ca-on-immunizations-profile-retrieval-clinician-Immunization"
+          },
+          "documentation": "Retrieve history of patient's immunizations / Digital Yellow Card",
+          "interaction": [
+            {
+              "code": "search-type",
+              "documentation": "Search Immunization resources using specified parameters"
+            }
+          ],
+          "searchInclude": [
+            "Immunization:patient",
+            "Immunization:performer"
+          ],
+          "searchRevInclude": [
+            "ImmunizationRecommendation:patient"
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-patient",
+              "type": "reference",
+              "documentation": "The patient for the vaccination record"
+            },
+            {
+              "name": "patient.identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-identifier",
+              "type": "token",
+              "documentation": "Only supports search by Ontario Immunization ID or Ontario Health Card Number"
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "profile": {
+            "reference": "https://ehealthontario.ca/API/FHIR/StructureDefinition/ca-on-immunizations-profile-retrieval-clinician-Patient"
+          },
+          "documentation": "This server does not let the clients create identities.",
+          "interaction": [
+            {
+              "code": "search-type",
+              "documentation": "Search Patient resources using specified parameters"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-identifier",
+              "type": "token",
+              "documentation": "Only supports search by Ontario Immunization ID or Ontario Health Card Number"
+            },
+            {
+              "name": "birthdate",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-birthdate",
+              "type": "date",
+              "documentation": "The patient's date of birth"
+            },
+            {
+              "name": "gender",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-gender",
+              "type": "token",
+              "documentation": "Gender of the patient"
+            },
+            {
+              "name": "given",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-given",
+              "type": "string",
+              "documentation": "A portion of the given name of the patient"
+            },
+            {
+              "name": "family",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-family",
+              "type": "string",
+              "documentation": "A portion of the family name of the patient"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "messaging": [
+    {
+      "endpoint": [
+        {
+          "protocol": {
+            "system": "http://hl7.org/fhir/message-transport",
+            "code": "http"
+          },
+          "address": "https://wsgateway.prod.ehealthontario.ca/API/FHIR/Immunizations/v3/clinician/$process-message"
+        }
+      ],
+      "documentation": "Submission of patient's immunization(s)",
+      "supportedMessage":[
+        {
+          "mode": "receiver",
+          "definition": {
+            "reference": "StructureDefinition/MessageDefinitionTBD"
+          }
+        }
+      ]
+    }
+  ]
+}
